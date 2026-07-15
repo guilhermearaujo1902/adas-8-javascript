@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Interação Javascript x HTML</h1>
+
+    <label for="perfil">Perfil</label>
+    <input type="text" id="perfil">
+
+    <br><br>
+    <button onclick="validarPerfil()">Verificar</button>
+    <button onclick="limpar()">Limpar</button>
+
+    <script>
+
+        // Declarando uma função
+        function validarPerfil() {
+
+            // Vinculando um elemento html (tag) á uma constante no Javascript
+            // const inputPefil = <input type="text" id="perfil">
+            const inputPerfil = document.getElementById('perfil')
+            console.log(inputPerfil)
+
+            console.log('Valor do input:', inputPerfil.value)
+
+            // Testar o perfil com as seguintes condições:
+            // Admin -> Acesso Permitido!
+            // Compras ou Vendas -> Acesso Negado!
+            // TI -> Acesso Master!
+            // Qualquer outro perfil -> Perfil desconhecido...
+
+            const perfil = inputPerfil.value
+            
+            if (perfil == 'Admin') {
+                console.log('Acesso Permitido!')
+                alert('Acesso Permitido!')
+            } else if (perfil == 'Compras' || perfil == 'Vendas') {
+                console.log('Acesso Negado!')
+                alert('Acesso Negado!')
+            } else if (perfil == 'TI') {
+                console.log('Acesso Master!')
+                alert('Acesso Master!')
+            } else {
+                console.log('Perfil desconhecido...')
+                alert('Perfil desconhecido...')
+            }
+
+        
+        }
+
+        function limpar() {
+
+            const inputPerfil = document.getElementById('perfil')
+            inputPerfil.value = ''
+
+        }
+
+    </script>
+</body>
+</html>

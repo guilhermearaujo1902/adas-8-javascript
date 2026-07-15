@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Condicionais em Javascript</h1>
+    
+
+    <script>
+
+        let idade = 2
+
+        // Estrutura condicional IF
+        if (idade >= 18) {
+            console.log('É maior de idade')
+        } else {
+            console.log('É menor de idade')
+        }
+
+
+        // Estrutura condicional IF Encadeada
+
+        let media = 3
+        
+        if (media >= 8) {
+            console.log('Passou direto!')
+        } else if (media >= 4) {
+            console.log('Está em recuperação ....')
+        } else {
+            console.log('Reprovou! Tente denovo.')
+        }
+
+
+        // Estrutura condicional Ternária
+        let perfil = 'TI'
+
+        const ACESSO = perfil == 'Admin' ? 'Acesso permitido' : 'Acesso negado'
+
+        console.log('Acesso: ', ACESSO)
+
+
+        // Tipos de comparação
+        // Igualdade: ==
+        // Diferença !=
+        // Identico: ===
+        // Não identidco: !==
+        // Relacionais: > >= < <=
+        // Operador Lógio E -> &&
+        // Operador Lógio OU -> ||
+
+
+        // Estrutura condicional SWITCH
+        const codigo = '1'
+
+        switch (codigo) {
+            case '1':
+                console.log('Setor Administração')
+                break
+            case '2':
+                console.log('Setor RH')
+                break
+            default:
+                console.log('Setor não identificado')
+        }
+
+
+    </script>
+</body>
+</html>
