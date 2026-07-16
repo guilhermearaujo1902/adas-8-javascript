@@ -1,0 +1,65 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            padding: 20px;
+            margin-top: 50px;
+            width: 300px;
+            border: solid 1px red;
+        }
+
+        p {
+            color: chocolate;
+        }
+
+        .destaque {
+            background-color: #2e2d2d;
+            color: antiquewhite;
+            border-radius: 8px;
+            padding: 12px 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Interação Javascript x HTML</h1>
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome">
+
+    <button onclick="validarUsuario()">Validar usuário</button>
+
+    <div id="validacao">
+        Aguardando validação ...
+    </div>
+    
+
+    <script>
+
+        function validarUsuario() {
+
+            // Interação Javascript buscando dados do HTML
+            const inputNome = document.getElementById('nome')
+            const nome = inputNome.value
+
+            // Interação Javascript enviando dados para o HTML
+            const divValidacao = document.getElementById('validacao')
+            // divValidacao.innerHTML = '<p>Olá ' + nome + ', seja bem vindo ao sistema!</p>'
+            divValidacao.innerHTML += `
+                <p>Olá ${nome}, seja bem vindo ao sistema!</p>
+                <p class="destaque">Novo usuário: ${nome}</p>
+            `
+
+            inputNome.value = ''
+            inputNome.focus()
+
+        }
+
+    </script>
+</body>
+</html>

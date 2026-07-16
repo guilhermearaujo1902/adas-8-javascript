@@ -1,0 +1,60 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Convertendo valores</h1>
+
+    <label for="inputA">Primeiro numero</label>
+    <input type="number" id="inputA">
+
+    <br><br>
+
+    <label for="inputB">Segundo numero</label>
+    <input type="number" id="inputB">
+
+    <br><br>
+    <button onclick="capturarNumero()">Capturar</button>
+    
+    <script>
+
+        function capturarNumero() {
+            
+            const inputA = document.getElementById('inputA')
+            const inputB = document.getElementById('inputB')
+
+            // Exemplos de conversão de dados (String para Number)
+
+            // Converter para tipo Number
+            const numero = Number(inputA.value)
+
+            // Convertendo para tipo Number Inteiro
+            const numeroInteiro = Number.parseInt(inputA.value)
+
+            // Convertendo para tipo Number Decimal
+            const numeroDecimal = Number.parseFloat(inputA.value)
+
+            console.log(typeof numero)
+            console.log(typeof numeroInteiro)
+            console.log(typeof numeroDecimal)
+
+
+
+
+            // Exemplo de calculo
+
+            const valorA = Number(inputA.value)
+            const valorB = Number(inputB.value)
+
+            console.log(valorA + valorB)
+            console.log(valorA * valorB)
+            console.log(valorA - valorB)
+
+        }
+
+    </script>
+</body>
+</html>

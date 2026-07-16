@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+
+    <h1>Validando dias</h1>
+
+    <label for="dia">Dia</label>
+    <input type="number" id="dia">
+
+    <button onclick="validarDia()">Validar dia</button>
     
 
     <script>
@@ -16,9 +23,36 @@
             - crie um botão para validar o dia
 
             No Javascript:
-            - crie uma função para validar o dia, capture o dia digitado e imprima no console ou em alert qual o dia da semana correspondente.
+            - crie uma função para validar o dia, capture o dia digitado e
+            imprima no console ou em alert qual o dia da semana correspondente.
 
         */
+
+        function validarDia() {
+
+            const inputDia = document.getElementById('dia')
+            const dia = inputDia.value
+
+            switch (dia) {
+                case '1':
+                    console.log('Hoje é Domingo!')
+                    break;
+                case '2':
+                    console.log('Hoje é Segunda-feira!')
+                    break;
+                case '6':
+                    console.log('Hoje é Sexta-feira!')
+                    break;
+                case '7':
+                    console.log('Hoje é Sábado!')
+                    break;
+            
+                default:
+                    console.log('Dia não reconhecido ...')
+                    break;
+            }
+
+        }
 
     </script>
 </body>
