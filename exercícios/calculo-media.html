@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .notas {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .notas input {
+            width: 80px;
+            font-size: 32px;
+            padding: 4px;
+            border-radius: 4px;
+            border: solid 1px;
+        }
+
+        button {
+            border: none;
+            padding: 8px 16px;
+            background-color: chocolate;
+            color: aliceblue;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Média dos alunos</h1>
+
+    <label for="aluno">Aluno</label>
+    <input type="text" id="aluno">
+
+    <h3>Notas</h3>
+    <div class="notas">
+        <input type="number" id="notaA">
+        <input type="number" id="notaB">
+        <input type="number" id="notaC">
+        <input type="number" id="notaD">
+    </div>
+    
+    <button onclick="calcularMedia()">Calcular média</button>
+
+    <div class="resultados" id="resultados" onmouseenter="focoInputAluno()">
+        <h3>Resultados dos alunos</h3>
+    </div>
+
+    <script>
+
+        /*
+            No HTML
+                - Criar 4 inputs, um para cadas nota do aluno
+                - 1 input para o nome do aluno
+                - 1 botão para calcular a média
+                - 1 div para acumular os resultados dos alunos
+
+            No Javascript
+                - Criar uma função que capture as informações necessárias do html
+                - Calcule a média do aluno
+                - Insira na div de fora 'Acumulativa' a seguinte saída de dados
+
+                Resultados dos alunos
+                Harry Potter - Média: 7 - Situação: Em recuperação
+                Hermione Granger - Média: 10 - Situação: Aprovada
+                Rony Weasley - Média: 3 - Situação: Reprovado
+        */
+
+        function calcularMedia() {
+
+            const inputAluno = document.getElementById('aluno')
+            const inputNotaA = document.getElementById('notaA')
+            const inputNotaB = document.getElementById('notaB')
+            const inputNotaC = document.getElementById('notaC')
+            const inputNotaD = document.getElementById('notaD')
+            const divResultados = document.getElementById('resultados')
+
+            const notaA = Number(inputNotaA.value)
+            const notaB = Number(inputNotaB.value)
+            const notaC = Number(inputNotaC.value)
+            const notaD = Number(inputNotaD.value)
+
+            const media = (notaA + notaB + notaC + notaD) / 4
+
+            let situacao = ''
+
+            if (media >= 8) {
+                situacao = 'Aprovado'
+            } else if (media >= 4) {
+                situacao = 'Em recuperação'
+            } else {
+                situacao = 'Reprovado'
+            }
+
+            divResultados.innerHTML += `
+                <p>${inputAluno.value} - Média: ${media} - Situação: ${situacao}</p>
+            `
+
+            inputNotaA.value = ''
+            inputNotaB.value = ''
+            inputNotaC.value = ''
+            inputNotaD.value = ''
+
+            inputAluno.value = ''
+            inputAluno.focus()
+
+        }
+
+        function focoInputAluno() {
+            document.getElementById('aluno').focus()
+        }
+
+    </script>
+</body>
+</html>
