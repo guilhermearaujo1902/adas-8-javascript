@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Listas no Javascript (Vetores)</h1>
+    
+    <script>
+
+        // Declaração: Lista | Vetor | Array
+        let nomes = ['Harry']
+
+        // Tamanho da lista, ou a quantidade de
+        // elementos contidos nela
+        console.log(nomes.length)
+
+        // Imprimir a lista em forma de texto 
+        console.log(nomes.toString())
+
+
+        /* Manipulação de dados em uma lista */
+
+        // Adicionar um novo elemento no final da lista
+        nomes.push('Hermione')
+        nomes.push('Rony', 'Draco')
+        console.log(nomes.toString())
+
+        // Remover do final da lista
+        nomes.pop()
+        console.log(nomes.toString())
+
+        // Remover no começo da lista
+        nomes.shift()
+        console.log(nomes.toString())
+
+        // Inserir no começo da lista
+        nomes.unshift('Bob', 'Harry')
+        console.log(nomes.toString())
+
+        // Encontra o índice ou posição do elemento
+        const posicao = nomes.indexOf('Rony')
+        console.log(posicao)
+        console.log(nomes[posicao])
+
+
+        // Inserir na lista a partir de uma posição
+        nomes.splice(1, 0, 'Francisco')
+        console.log(nomes.toString())
+
+        // Alterar na lista a partir de uma posição
+        nomes.splice(1, 1, 'Patick')
+        console.log(nomes.toString())
+
+        // Excluir na lista a partir de uma posição
+        nomes.splice(1, 1)
+        console.log(nomes.toString())
+
+    </script>
+</body>
+</html>
