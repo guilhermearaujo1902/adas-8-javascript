@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Trabalhando funções próprias de Array</h1>
+    
+
+    <script>
+
+        const lista = ['vermelho', 7, 15, 'azul', 25, 'amarelo']
+
+        /* Laços de repetições */
+
+        // For tradicional
+        for(let cont = 0; cont < lista.length; cont++) {
+            if (typeof lista[cont] == 'string') {
+                console.log(lista[cont])
+            }
+        }
+
+        console.log('--------------------------------')
+
+        // ForEach
+        lista.forEach(item => {
+            if (typeof item == 'string') {
+                console.log(item)
+            }
+        })
+
+        // lista.forEach(function(item) {
+        //     if (typeof item == 'string') {
+        //         console.log(item)
+        //     }
+        // })
+
+        console.log('--------------------------------')
+
+        // For Of
+        for (const item of lista) {
+            if (typeof item == 'string') {
+                console.log(item)
+            }
+        }
+
+
+        // Outras funções para percorrer listas
+
+        const listaNumeros = lista.filter(item => typeof item == 'number')
+        console.log(listaNumeros)
+
+        // filter
+        // map
+        // some
+        // every
+        // find
+        
+
+    </script>
+</body>
+</html>

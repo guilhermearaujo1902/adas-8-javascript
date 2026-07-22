@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Cadastro de alunos</h1>
+
+    <label for="nome">Nome do aluno:</label>
+    <input type="text" id="nome">
+    <br><br>
+
+    <button onclick="addInicio()">Add Inicio</button>
+    <button onclick="addFim()">Add Fim</button>
+    <button onclick="removerInicio()">Remover Inicio</button>
+    <button onclick="removerFim()">Remover Fim</button>
+    
+    <br><br>
+
+    <div id="alunos">
+        <h3>Lista de alunos</h3>
+    </div>
+
+    <script>
+
+        /*
+            No HTML
+            Criar um formulário com um campo para digitar o nome do aluno
+            e botões para:
+                - Adicionar ao final da lista
+                - Adicionar no início da lista
+                - Remover do final da lista
+                - Remover do início da lista
+            Criar também uma div pra imprimir a lista dos nomes
+
+            No Javascript
+            Criar uma variável do tipo Array para armazenar os nomes
+            Criar funções para cada um dos botões de ação
+        */
+
+        const listaNomes = []
+
+        function addInicio() {
+            const inputNome = document.getElementById('nome')
+            listaNomes.unshift(inputNome.value)
+
+            imprimirLista()
+        }
+
+        function addFim() {
+            const inputNome = document.getElementById('nome')
+            listaNomes.push(inputNome.value)
+
+            imprimirLista()
+        }
+
+        function removerInicio() {
+            listaNomes.shift()
+
+            imprimirLista()
+        }
+
+        function removerFim() {
+            listaNomes.pop()
+
+            imprimirLista()
+        }
+
+        function imprimirLista() {
+            const divAlunos = document.getElementById('alunos')
+            // const alunos = listaNomes.toString()
+            divAlunos.innerHTML = `
+                <h3>Lista de alunos</h3>
+                <p>${listaNomes.toString()}</p>
+            `
+
+            limpar()
+        }
+
+        function limpar() {
+            const inputNome = document.getElementById('nome')
+            inputNome.value = ''
+            inputNome.focus()
+        }
+
+    </script>
+</body>
+</html>
