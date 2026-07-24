@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            padding: 16px;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #838383;
+        }
+
+        .barra-tarefa {
+            background-color: #aee1f0;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .barra-tarefa input {
+            border: none;
+            color: #8bc1d1;
+            padding: 4px 8px;
+        }
+
+        .barra-tarefa button {
+            border: none;
+            border-radius: 4px;
+            background-color: #4d9e4d;
+            color: #FFF;
+            padding: 4px 12px;
+        }
+
+        .barra-tarefa button:hover {
+            cursor: pointer;
+            background-color: #3e823e;
+        }
+
+        .lista-produtos {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .lista-produtos div {
+            border: solid 3px #56569e;
+            border-radius: 8px;
+            padding: 8px;
+            padding-bottom: 48px;
+            width: 150px;
+            text-align: center;
+            color: #545353;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Cadastro de produtos</h1>
+    <p>Sistema de controle de produtos</p>
+
+    <div class="barra-tarefa">
+        <input type="text" id="produto">
+        <button onclick="adicionarProduto()">Novo</button>
+    </div>
+
+    <div id="listaProdutos" class="lista-produtos">
+        <p>Nenhum produto cadastrado.</p>
+    </div>
+    
+
+    <script>
+
+        const listaProdutos = []
+
+        function adicionarProduto() {
+
+            const inputProduto = document.getElementById('produto')
+
+            if (inputProduto.value == '') {
+                alert('É necessário preencher o campo com nome do produto!')
+            } else {
+
+                listaProdutos.push(inputProduto.value)
+                imprimirLista()
+
+                inputProduto.value = ''
+                inputProduto.focus()
+            }
+
+
+        }
+
+        function imprimirLista() {
+
+            const divProdutos = document.getElementById('listaProdutos')
+
+            let conteudoDiv = ''
+            for (const produto of listaProdutos) {
+                conteudoDiv += `
+                    <div>${produto}</div>
+                `
+            }
+    
+            divProdutos.innerHTML = conteudoDiv
+
+        }
+
+    </script>
+</body>
+</html>

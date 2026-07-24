@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Objetos com Javascript</h1>
+    
+
+    <script>
+
+        // Decalarando um objeto
+        /*
+            const ou let nomeObjeto = {
+                propriedade: valor,
+                ...
+                propriedade: valor,
+            }
+        */
+
+        // const aluno = ['Harry', 19, 123, true, 8]
+        const aluno = {
+            nome: 'Harry',
+            idade: 19,
+            codigo: 123,
+            cadastro: true,
+            media: 8,
+            notas: [7,8,9,6],
+            endereco: {
+                rua: 'Rua 10', 
+                numero: 58,
+                cidade: 'Blumenau'
+            }
+        }
+
+        // Imprimindo o nome do aluno
+        console.log(aluno)
+        console.log(aluno['nome'])
+        console.log(aluno.nome)
+
+        // Reatribuindo valor a uma propriedade
+        aluno.nome = 'Rony'
+        console.log(aluno.nome)
+
+        // Imprimir a terceira nota do aluno
+        console.log(aluno.notas[2])
+
+        // Imprimir nome da rua do aluno
+        console.log(aluno.endereco.rua)
+
+        const cidade = aluno.endereco.cidade
+
+    </script>
+</body>
+</html>
