@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .lista-personagens {
+            margin: 24px 0;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #e3e397;
+            width: 250px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Consumindo API</h1>
+
+    <button onclick="imprimirPersonagens()">Imprimir Personagens</button>
+
+    <div id="listaPersonagens" class="lista-personagens">
+        <!-- Receber os cards -->
+    </div>
+
+
+    <script>
+
+        // Função para realiar a chamada para uma API 
+        function imprimirPersonagens() {
+
+            // Chamando o endereço da API através da função 'fetch'
+            fetch('https://rickandmortyapi.com/api/character')
+            .then(resposta => {
+                return resposta.json()
+            })
+            .then(dadosConvertidos => {
+                const info = dadosConvertidos.info
+                const listaPersonagens = dadosConvertidos.results
+
+                const divListaPersonagens = document.getElementById('listaPersonagens')
+
+                let conteudoDiv = ''
+
+                // Percorrer a lista de personagens
+                for (const personagem of listaPersonagens) {
+                    console.log(personagem.image)
+                    conteudoDiv += `
+                        <div class="card">
+                            <h3>${personagem.name}</h3>
+                            <p>${personagem.species}</p>
+                        </div>
+                    `
+                }
+
+                divListaPersonagens.innerHTML = conteudoDiv
+
+            })
+
+        }
+
+    </script>
+</body>
+</html>
